@@ -18,7 +18,7 @@
                 <label for="password">Пароль
              <input type="password" name="password" placeholder="Подтверждение пароля" required ></label><br>
           
-            <p>Зарегистрироваться <input type="submit"></p> 
+            <p>Зарегистрироваться <button type="submit"></p> 
         </form>
     </body>
 </html>
