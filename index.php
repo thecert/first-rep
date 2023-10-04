@@ -19,9 +19,9 @@
 
 
     $host       = "db4.myarena.ru";      // Адрес сервера базы данных
-    $dbname     = "u19978_a01";    // Имя базы данных
-    $user       = "u19978_a01";           // Имя пользователя
-    $password   = "4U0d3F3m8Q";               // Пароль
+    $dbname     = "u19978_a05";    // Имя базы данных
+    $user       = "u19978_a05";           // Имя пользователя
+    $password   = "W2n8U5x1A1";               // Пароль
 
     try{
          $connection = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $password);
