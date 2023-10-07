@@ -5,20 +5,20 @@
         <title>Форма регистрации</title>
     </head>
     <body>
-        <form action=".php" method="post">
+        <form action="actions.php" method="post">
           <label for="mail">Почта
-             <input type="email" name="email" placeholder="E-mail" required></label><br>
+             <input type="email" name="email" placeholder="E-mail" required></label><br><br>
           
            <label for="login">Логин
-             <input type="login" name="text" placeholder="login" required></label><br>
+             <input type="text" name="login" placeholder="login" required></label><br><br>
           
           <label for="password">Пароль
-             <input type="password" name="password" placeholder="Пароль" required ></label><br>
+             <input type="password" name="password" placeholder="Пароль" required ></label><br><br>
           
-                <label for="password">Пароль
-             <input type="password" name="password" placeholder="Подтверждение пароля" required ></label><br>
+                <label for="password">Подтверждение пароля
+             <input type="password" name="password2" placeholder="Подтверждение пароля" required ></label><br><br>
           
-            <p>Зарегистрироваться <button type="submit"></p> 
+            <p><input type ="submit" value="Зарегестрироваться" required</p> 
         </form>
     </body>
 </html>
