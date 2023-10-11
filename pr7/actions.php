@@ -1,4 +1,10 @@
-<body>
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"> 
+    <title>форма</title>
+</head>
+	<body>
 <?php
 
 
@@ -36,7 +42,38 @@ if($_POST['passwrod']!==$_POST['passwrod2']){
       $connection = new PDO('mysql:host='.$host.';dbname='.$dbname.';charset=utf8', $user, $password);
     } catch (\Throwable $th) {
       echo('Ошибка подключения');
+	    
     }
-     
+	    
+     $select = $connection->prepare( "SELECT COUNT(`id`) as cnt FROM `users` WHERE `login` = ? OR `email` = ?;" ); 
+    $res = $select->execute([ $_POST['login'],$_POST['email'] ] );
+    $row = $select->fetch();
+
+    if(!$res ){
+        exit( 'Ошибка регистрации...');
+    }
+
+    if( $res && isset($row['cnt']) && $row[0] > 0 ){
+    exit( 'Ошибка регистрации... (Пользователь уже существует)' );
+    }
+
+    $email = $_POST['email'];
+    $login = $_POST['login'];
+    $pass = $_POST['password'];
+    $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
+
+    $stmt = $connection->prepare("INSERT INTO `users` (email, login, password) VALUES (:email, :log, :pass)");
+
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':log', $login);
+    $stmt->bindParam(':pass', $pass_hash);
+
+    if ($stmt->execute()) {
+        echo 'Здравствуйте, '.$login.'. <br>';
+        echo 'Вы зарегистрированы';
+        } 
+        else {
+        echo "Ошибка при выполнении запроса";
+        }   
 ?> 
 </body>
