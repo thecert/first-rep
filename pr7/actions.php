@@ -62,7 +62,7 @@ if($_POST['passwrod']!==$_POST['passwrod2']){
     $pass = $_POST['password'];
     $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
 
-    $stmt = $connection->prepare("INSERT INTO `users` (email, login, password) VALUES (:email, :log, :pass)");
+    $stmt = $connection->prepare("INSERT INTO `users` ( login, email, password) VALUES (:log, :email, :pass)");
 
     $stmt->bindParam(':email', $email);
     $stmt->bindParam(':log', $login);
