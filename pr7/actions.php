@@ -25,7 +25,7 @@ if(empty($_POST['password']) ) {
 if(empty($_POST['password2']) ) {
   exit('Ввведите значение в подтверждение пароля');
 }
-if($_POST['passwrod']!==$_POST['passwrod2']){
+if($_POST['password']!==$_POST['password2']){
     exit('Пароли не совпадают!');
        }
 	   echo 'Здравствуйте, '.htmlspecialchars($_POST['login']).'.<br>';
@@ -76,4 +76,5 @@ if($_POST['passwrod']!==$_POST['passwrod2']){
         echo "Ошибка при выполнении запроса";
         }   
 ?> 
+
 </body>
